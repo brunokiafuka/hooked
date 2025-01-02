@@ -53,13 +53,4 @@ This project is licensed under the MIT License.
 - [Mermaid](https://mermaid-js.github.io/mermaid/#/) for diagram generation
 - [esbuild](https://esbuild.github.io/) for fast bundling
 
-## Release Notes
-
-### 0.0.1
-
-- Initial release of Hooked
-- Basic functionality for analyzing hooks and generating Mermaid diagrams
-
----
-
 **Enjoy using Hooked!**
