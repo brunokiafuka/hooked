@@ -1,9 +1,5 @@
-export function isSupportedFileExtension(path: string | undefined) {
+export function isSupportedFileExtension(path: string) {
   const validExtensions = ['.js', '.ts', '.tsx'];
-
-  if (path === undefined) {
-    return false;
-  }
 
   const fileExtension = path.slice(path.lastIndexOf('.'));
 

@@ -18,6 +18,10 @@ export function activate(context: vscode.ExtensionContext) {
     const hooks = analyze(editor?.document.uri.path || "");
     const baseFileName = editor?.document.fileName.split("/").pop();
 
+    if (baseFileName === undefined) {
+      return;
+    }
+
     if (!isSupportedFileExtension(baseFileName)) {
       vscode.window.showInformationMessage("Expected a file with .js, .ts, or .tsx extension.");
       return;
