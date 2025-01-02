@@ -2,7 +2,7 @@
   "name": "hooked",
   "displayName": "Hooked - React Hooks Analyzer",
   "description": "",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "icon": "./assets/hooked.png",
   "engines": {
     "vscode": "^1.90.0"
