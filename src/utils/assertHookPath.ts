@@ -20,3 +20,4 @@ export function assertHookPath(filePath: string) {
 
   return hookPath;
 }
+
