@@ -3,6 +3,7 @@ import { analyze } from "./core";
 import { generateMermaidDiagram } from "./impl/genMermaid";
 import { getWebviewContent } from "./utils/getWebviewContent";
 import { isSupportedFileExtension } from "./utils/isSupportedFileExtension";
+import { SUPPORTED_EXTENSIONS } from "./config/constants";
 
 // Todo: Improve the correctness of files traversal, its currently not dynamic
 
@@ -23,9 +24,13 @@ export function activate(context: vscode.ExtensionContext) {
     }
 
     if (!isSupportedFileExtension(baseFileName)) {
-      vscode.window.showInformationMessage("Expected a file with .js, .ts, or .tsx extension.");
+      const expectedExtensions = SUPPORTED_EXTENSIONS.join(", ");
+
+      vscode.window.showInformationMessage(
+        `This file type is not supported. Please open a file with one of these extensions: ${expectedExtensions}`
+      );
       return;
-    } 
+    }
 
     if (!hooks) {
       vscode.window.showInformationMessage("No hooks found!");

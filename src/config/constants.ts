@@ -38,3 +38,8 @@ export const DEFAULT_ACCEPTED_HOOKS = [
  * Directories that are not considered screens
  */
 export const NON_SCREEN_DIRS = ["hooks", "components"];
+
+/**
+ * File extensions that are supported by the analyzer
+ */
+export const SUPPORTED_EXTENSIONS = [".js", ".ts", ".tsx", ".jsx"];

@@ -16,8 +16,11 @@ export function assertHookPath(filePath: string) {
     hookPath += ".ts";
   } else if (fs.existsSync(`${hookPath}.tsx`)) {
     hookPath += ".tsx";
+  } else if (fs.existsSync(`${hookPath}.jsx`)) {
+    hookPath += ".jsx";
+  } else if (fs.existsSync(`${hookPath}.js`)) {
+    hookPath += ".js";
   }
 
   return hookPath;
 }
-
