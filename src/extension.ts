@@ -19,10 +19,9 @@ export function activate(context: vscode.ExtensionContext) {
     const baseFileName = editor?.document.fileName.split("/").pop();
 
     if (!isSupportedFileExtension(baseFileName)) {
-      vscode.window.showInformationMessage("Expected a Javascript or Typescript extension");
+      vscode.window.showInformationMessage("Expected a file with .js, .ts, or .tsx extension.");
       return;
-    }
-    
+    } 
 
     if (!hooks) {
       vscode.window.showInformationMessage("No hooks found!");
