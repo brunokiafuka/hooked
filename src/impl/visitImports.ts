@@ -80,7 +80,10 @@ export function visitImports(
     let hookPath = "";
 
     if (isRelative) {
-      hookPath = assertHookPath(path.resolve(filePath, dependency.importPath));
+      const currentDir = path.dirname(filePath);
+      hookPath = assertHookPath(
+        path.resolve(currentDir, dependency.importPath)
+      );
     } else {
       hookPath = assertHookPath(
         // It would be better if we could get a configuration to indicate the path

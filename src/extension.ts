@@ -16,7 +16,6 @@ export function activate(context: vscode.ExtensionContext) {
       return;
     }
 
-    const hooks = analyze(editor?.document.uri.path || "");
     const baseFileName = editor?.document.fileName.split("/").pop();
 
     if (baseFileName === undefined) {
@@ -31,6 +30,8 @@ export function activate(context: vscode.ExtensionContext) {
       );
       return;
     }
+
+    const hooks = analyze(editor?.document.uri.path || "");
 
     if (!hooks) {
       vscode.window.showInformationMessage("No hooks found!");
