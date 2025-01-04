@@ -5,6 +5,12 @@
 
 ## [Unreleased]
 
+## [1.0.4] - 2025-01-03
+
+### Fixed
+  - Fixed the issue where the extension was not able to resolve relative imports. (#5)
+  - Prevented analysis of files that are not supported by the extension.
+
 ## [1.0.3] - 2023-01-01
 
 ### Added
