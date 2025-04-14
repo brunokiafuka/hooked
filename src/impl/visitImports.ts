@@ -48,7 +48,9 @@ export function visitImports(
     depth,
     entry: callee,
     dependencies: [],
+    filePath: filePath,
   };
+
   recast.visit(ast, {
     visitImportDeclaration(nodePath: any) {
       const importPath = nodePath.node.source.value as string;
@@ -66,7 +68,12 @@ export function visitImports(
           continue;
         }
 
-        customHooks.dependencies.push({ importPath, importValue, callee });
+        customHooks.dependencies.push({
+          importPath,
+          importValue,
+          callee,
+          filePath: "",
+        });
       }
 
       this.traverse(nodePath);
@@ -78,19 +85,18 @@ export function visitImports(
       dependency.importPath.startsWith("./") ||
       dependency.importPath.startsWith("../");
     let hookPath = "";
+    let fullPath = "";
 
     if (isRelative) {
       const currentDir = path.dirname(filePath);
-      hookPath = assertHookPath(
-        path.resolve(currentDir, dependency.importPath)
-      );
+      fullPath = path.resolve(currentDir, dependency.importPath);
+      hookPath = assertHookPath(fullPath);
     } else {
-      hookPath = assertHookPath(
-        // It would be better if we could get a configuration to indicate the path
-        // of the file that contains apps implementation code
-        // currently, we are assuming that the implementation lives in the `src` directory
-        path.resolve(`${ROOT_DIR}/src/${dependency.importPath}`)
-      );
+      // It would be better if we could get a configuration to indicate the path
+      // of the file that contains apps implementation code
+      // currently, we are assuming that the implementation lives in the `src` directory
+      fullPath = path.resolve(`${ROOT_DIR}/src/${dependency.importPath}`);
+      hookPath = assertHookPath(fullPath);
     }
 
     try {
@@ -100,6 +106,7 @@ export function visitImports(
         ...dependency,
         depth: hookImports?.depth ?? 0,
         dependencies: hookImports?.dependencies ?? [],
+        filePath: fullPath,
       };
     } catch (error) {
       const errorMessage = chalk.red(

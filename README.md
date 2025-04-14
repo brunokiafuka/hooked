@@ -8,8 +8,10 @@ Hooked is a Visual Studio Code extension that analyzes React hooks in your proje
 
 - Analyzes custom React hooks in your project
 - Generates a Mermaid diagram showing hook dependencies
-- Displays the diagram in a webview panel
 - Copies the Mermaid diagram code to your clipboard
+- Zoom in and out of the diagram
+- Pan around the diagram
+- Take a screenshot of the diagram
 
 ## Installation
 
