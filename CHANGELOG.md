@@ -3,7 +3,15 @@
 > [!NOTE]  
 > _All notable changes to the "hooked" extension will be documented in this file. Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file._
 
-## [Unreleased]
+## [1.1.0] - 2025-04-14
+
+### Added
+  - Added node dragging functionality to allow users to rearrange the dependency graph
+  - Implemented panning functionality to navigate the graph when zoomed in
+  - Added trackpad/mouse wheel zooming for more intuitive navigation
+  - Added screenshot capability to capture and save the current view of the graph
+  - Added "Copy Mermaid" button to copy the diagram code to clipboard
+  - Improved UI with visual feedback during interactions
 
 ## [1.0.4] - 2025-01-03
 

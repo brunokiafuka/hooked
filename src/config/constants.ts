@@ -1,7 +1,7 @@
 /**
  * Colors used to fill hooks in the graph
  */
-export const DEPTH_COLORS = {
+export const DEPTH_COLORS: { [key: number]: string } = {
   0: "#FFDDC1",
   1: "#DDBBFF",
   2: "#BBDDFF",

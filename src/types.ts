@@ -1,13 +1,15 @@
-export type Report = {
+export interface Report {
   entry: string;
   depth: number;
+  filePath: string;
   dependencies: Dependency[];
-};
+}
 
-export type Dependency = {
+export interface Dependency {
   importPath: string;
-  depth?: number;
   importValue: string;
   callee: string;
+  filePath: string;
+  depth?: number;
   dependencies?: Dependency[];
-};
+}
